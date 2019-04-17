@@ -21,6 +21,7 @@ public class Endpoints {
     private Configuration configuration = Configuration.get();
 
 
+
     // Adapters
     private Retrofit articleAdapter;
     private Retrofit employeeAdapter;

@@ -30,12 +30,11 @@ public class EndpointRequest {
     }
 
     public void resetHeaders() {
-
         headers = new JSONObject();
         headers.put("User-Agent", null);
-        headers.put("X-Vibe-TimeZone", null);
-        headers.put("X-VibeSDK-Version", null);
-        headers.put("X-VibeSDK-Build", null);
+        headers.put("X-TimeZone", null);
+        headers.put("X-Version", null);
+        headers.put("X-Build", null);
         headers.put("Accept-Language", null);
 
     }
@@ -62,16 +61,13 @@ public class EndpointRequest {
     }
 
     public void verifyAllKeysPresent(JsonNode node) {
-
         for (Object o : json.keySet()) {
             String key = o.toString();
             assertEquals(json.get(key), node.get(key).asText());
         }
-
     }
 
     public void verifyNoKeysPresent(JsonNode node) {
-
         for (Object o : json.keySet()) {
             String key = o.toString();
             if (node.get(key) != null) {
