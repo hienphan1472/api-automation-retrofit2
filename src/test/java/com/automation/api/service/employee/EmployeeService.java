@@ -2,6 +2,7 @@ package com.automation.api.service.employee;
 
 import com.automation.api.endpoint.EndpointCaller;
 import com.automation.api.endpoint.Endpoints;
+import com.automation.model.SuccessResponse;
 import com.automation.model.employee.Employee;
 import com.automation.model.employee.EmployeeDTO;
 import com.automation.model.message.Success;
@@ -15,7 +16,7 @@ public class EmployeeService {
 
     private Endpoints endPoints = Endpoints.get();
     private EndpointCaller caller = EndpointCaller.get();
-    private List<EmployeeDTO> employees;
+    private SuccessResponse<List<EmployeeDTO>> successResponse;
     private Success success;
     private Employee employee;
 
@@ -26,7 +27,7 @@ public class EmployeeService {
 
     // --Sending request--
     public void getAllEmployee(){
-        employees = caller.perform(endPoints.employeeEndpoint().getAllEmployee());
+        successResponse = caller.perform(endPoints.employeeEndpoint().getAllEmployee());
     }
 
     public void updateEmployee(){
@@ -36,9 +37,8 @@ public class EmployeeService {
 
     // -- checking status or returned data--
     public void checkGetAllEmployeeSuccessful(){
-        assertNotNull(employees);
-        assertNotNull(employees.get(0).id);
-        System.out.println(employees.get(0).name);
+        assertNotNull(successResponse);
+        System.out.println(successResponse.getData().get(0).name);
     }
 
     public void deleteAnEmployee() {
