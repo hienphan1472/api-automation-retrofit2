@@ -30,7 +30,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <failsafe.version>2.18</failsafe.version>
-        <jackson.version>2.10.0.pr1</jackson.version>
+        <jackson.version>2.12.6.1</jackson.version>
         <cucumber.version>2.4.0</cucumber.version>
         <slf4j.version>1.7.5</slf4j.version>
         <okhttp.version>4.0.1</okhttp.version>
